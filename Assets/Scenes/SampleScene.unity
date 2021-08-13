@@ -3348,6 +3348,7 @@ MonoBehaviour:
   m_image:
   - {fileID: 375363847}
   - {fileID: 1132050144}
+  m_Navigator_sign: {fileID: 465009239}
   SrcValue: []
   SrcidValue: []
   Pid: []

@@ -19,6 +19,7 @@ public class HighlightBox : MonoBehaviour
     [SerializeField] GameObject[] m_TextContent = new GameObject[2];
     [SerializeField] GameObject[] m_BtnContent = new GameObject[2];
     [SerializeField] Image[] m_image = new Image[2];
+    [SerializeField] GameObject m_Navigator_sign;
     
 
 
@@ -347,6 +348,17 @@ public class HighlightBox : MonoBehaviour
 
                     m_image[1].transform.localPosition = new Vector2(imgbox1_x, imgbox1_y);
                 }
+                else if(subid == "arrow0")
+                {
+                    float rot_x = float.Parse(PValue_2D[i, 0]);
+                    float rot_y = float.Parse(PValue_2D[i, 1]);
+                    float rot_z = float.Parse(PValue_2D[i, 2]);
+                    float scale_nav = float.Parse(PValue_2D[i, 3]);
+
+                    m_Navigator_sign.transform.localEulerAngles = new Vector3(rot_x, rot_y, rot_z);
+                    m_Navigator_sign.transform.localScale = new Vector3(scale_nav, scale_nav, scale_nav);
+                }
+
                 i++;
             }
 
