@@ -19,6 +19,7 @@ public class HighlightBox : MonoBehaviour
     [SerializeField] GameObject[] m_TextContent = new GameObject[2];
     [SerializeField] GameObject[] m_BtnContent = new GameObject[2];
     [SerializeField] Image[] m_image = new Image[2];
+    
 
 
     string[] jpg_url = new string[2];
@@ -107,6 +108,13 @@ public class HighlightBox : MonoBehaviour
         m_LineDown.transform.eulerAngles = new Vector3(0f, 0f, L2Angle);
         m_LineLeft.transform.eulerAngles = new Vector3(0f, 0f, L3Angle);
         m_LineRight.transform.eulerAngles = new Vector3(0f, 0f, L4Angle);
+
+        // Cntbox position
+       
+
+        
+        // txtbox position
+
 
 
 
@@ -261,22 +269,84 @@ public class HighlightBox : MonoBehaviour
                 {
                     //Debug.Log("------------- txtcontent1 ----------");
                     //Debug.Log(PValue_2D[i, 0]);
-                    m_TextContent[0].GetComponent<Text>().text = "--------->> " + PValue_2D[i, 0].ToString() + "<<------------";
+                    m_TextContent[1].GetComponent<Text>().text = "--------->> " + PValue_2D[i, 0].ToString() + "<<------------";
+                }
+                else if (subid == "txtbox0")
+                {
+                    Debug.Log("------------- txtbox0 ----------");
+                    Debug.Log(PValue_2D[i, 0]);
+                    float txtbox0_x = (float.Parse(PValue_2D[i, 0]) - float.Parse(PValue_2D[i, 2])) / 2 * 1000;
+                    float txtbox0_y = (float.Parse(PValue_2D[i, 1]) - float.Parse(PValue_2D[i, 5])) / 2 * 1000;
+
+                    m_TextContent[0].transform.localPosition = new Vector2(txtbox0_x, txtbox0_y);
+                }
+                else if (subid == "txtbox1")
+                {
+                    Debug.Log("------------- txtbox1 ----------");
+                    Debug.Log(PValue_2D[i, 0]);
+                    float txtbox1_x = (float.Parse(PValue_2D[i, 0]) - float.Parse(PValue_2D[i, 2])) / 2 * 1000;
+                    float txtbox1_y = (float.Parse(PValue_2D[i, 1]) - float.Parse(PValue_2D[i, 5])) / 2 * 1000;
+
+                    m_TextContent[1].transform.localPosition = new Vector2(txtbox1_x, txtbox1_y);
                 }
                 else if (subid == "btncontent0")
                 {
                     //Debug.Log("------------- btncontent0 ----------");
                     //Debug.Log(PValue_2D[i, 0]);
-                    m_BtnContent[0].GetComponent<Text>().text = PValue_2D[i, 0].ToString();
+                    m_BtnContent[0].GetComponentInChildren<Text>().text = PValue_2D[i, 0].ToString();
 
                 }
                 else if (subid == "btncontent1")
                 {
                     //Debug.Log("------------- btncontent1 ----------");
                     //Debug.Log(PValue_2D[i, 0]);
-                    m_BtnContent[1].GetComponent<Text>().text = PValue_2D[i, 0].ToString();
+                    m_BtnContent[1].GetComponentInChildren<Text>().text = PValue_2D[i, 0].ToString();
                 }
+                // position
+                else if (subid == "btntxtbox0")
+                {
+                    Debug.Log("------------- btntxtbox0 ----------");
+                    Debug.Log(PValue_2D[i, 0]);
+                    Debug.Log(PValue_2D[i, 7]);
 
+                    float btnbox0_x = (float.Parse(PValue_2D[i, 0]) - float.Parse(PValue_2D[i, 2]))/2*1000;
+                    float btnbox0_y = (float.Parse(PValue_2D[i, 1]) - float.Parse(PValue_2D[i, 5]))/2*1000;
+
+                    m_BtnContent[0].transform.localPosition = new Vector2(btnbox0_x, btnbox0_y);
+                }
+                else if (subid == "btntxtbox1")
+                {
+                    Debug.Log("------------- btntxtbox1 ----------");
+                    Debug.Log(PValue_2D[i, 0]);
+                    Debug.Log(PValue_2D[i, 7]);
+
+                    float btnbox1_x = (float.Parse(PValue_2D[i, 0]) - float.Parse(PValue_2D[i, 2])) / 2 * 1000;
+                    float btnbox1_y = (float.Parse(PValue_2D[i, 1]) - float.Parse(PValue_2D[i, 5])) / 2 * 1000;
+
+                    m_BtnContent[1].transform.localPosition = new Vector2(btnbox1_x, btnbox1_y);
+                }
+                else if (subid == "imgbox0")
+                {
+                    Debug.Log("------------- imgbox0 ----------");
+                    Debug.Log(PValue_2D[i, 0]);
+                    Debug.Log(PValue_2D[i, 7]);
+
+                    float imgbox0_x = (float.Parse(PValue_2D[i, 0]) - float.Parse(PValue_2D[i, 2])) / 2 * 1000;
+                    float imgbox0_y = (float.Parse(PValue_2D[i, 1]) - float.Parse(PValue_2D[i, 5])) / 2 * 1000;
+
+                    m_image[0].transform.localPosition = new Vector2(imgbox0_x, imgbox0_y);
+                }
+                else if(subid == "imgbox1")
+                {
+                    Debug.Log("------------- imgtbox1 ----------");
+                    Debug.Log(PValue_2D[i, 0]);
+                    Debug.Log(PValue_2D[i, 7]);
+
+                    float imgbox1_x = (float.Parse(PValue_2D[i, 0]) - float.Parse(PValue_2D[i, 2])) / 2 * 1000;
+                    float imgbox1_y = (float.Parse(PValue_2D[i, 1]) - float.Parse(PValue_2D[i, 5])) / 2 * 1000;
+
+                    m_image[1].transform.localPosition = new Vector2(imgbox1_x, imgbox1_y);
+                }
                 i++;
             }
 
@@ -369,7 +439,7 @@ public class HighlightBox : MonoBehaviour
             x4 = float.Parse(PValue_2D[0, 6])*100;
             y4 = float.Parse(PValue_2D[0, 7])*100;
         }
-        /*
+        
         Debug.Log(x1);
         Debug.Log(x2);
         Debug.Log(x3);
@@ -378,7 +448,7 @@ public class HighlightBox : MonoBehaviour
         Debug.Log(y2);
         Debug.Log(y3);
         Debug.Log(y4);
-        */
+        
         return new BoxPoint
         {
             _x1 = x1,
@@ -407,4 +477,17 @@ public class BoxPoint
     public float _x4 { get; set; }
     public float _y4 { get; set; }
 }
+
+public class cntbox
+{
+    public float _x1 { get; set; }
+    public float _y1 { get; set; }
+    public float _x2 { get; set; }
+    public float _y2 { get; set; }
+    public float _x3 { get; set; }
+    public float _y3 { get; set; }
+    public float _x4 { get; set; }
+    public float _y4 { get; set; }
+}
+
 
